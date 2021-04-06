@@ -25,6 +25,8 @@ public class Main {
 
         System.out.println(app.getIdentityMap().getWriterById(1));
         System.out.println(app.getIdentityMap().getWriterById(1));
+        System.out.println(app.getIdentityMap().getBookById(2));
+        System.out.println(app.getIdentityMap().getBookById(2));
 
         app.closeConnection();
     }
