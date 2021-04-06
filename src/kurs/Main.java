@@ -11,22 +11,33 @@ public class Main {
 
         AppContext app = AppContext.getInstance();
         Connection connection = app.getConnection();
-
-        try {
-            Statement statement = connection.createStatement();
-            ResultSet rs = statement.executeQuery("SELECT id, name, unread FROM writers");
-            while (rs.next()){
-                System.out.println(rs.getString("name"));
+        if (connection != null) {
+            try {
+                System.out.println("---------- Все писатели в базе ----------");
+                Statement statement = connection.createStatement();
+                ResultSet rs = statement.executeQuery("SELECT name FROM writers");
+                while (rs.next()){
+                    System.out.println(" " + rs.getString("name"));
+                }
+                rs.close();
+                System.out.println("---------- Все книги в базе ----------");
+                rs = statement.executeQuery("SELECT name FROM books");
+                while (rs.next()){
+                    System.out.println(" " + rs.getString("name"));
+                }
+                rs.close();
+            } catch (SQLException throwables) {
+                throwables.printStackTrace();
             }
-            rs.close();
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
-        }
 
-        System.out.println(app.getIdentityMap().getWriterById(1));
-        System.out.println(app.getIdentityMap().getWriterById(1));
-        System.out.println(app.getIdentityMap().getBookById(2));
-        System.out.println(app.getIdentityMap().getBookById(2));
+            System.out.println("---------- Получение писателя по id (два раза) ----------");
+            System.out.println(app.getIdentityMap().getWriterById(1));
+            System.out.println(app.getIdentityMap().getWriterById(1));
+
+            System.out.println("---------- Получение книги по id (два раза) ----------");
+            System.out.println(app.getIdentityMap().getBookById(2));
+            System.out.println(app.getIdentityMap().getBookById(2));
+        }
 
         app.closeConnection();
     }

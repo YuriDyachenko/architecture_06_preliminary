@@ -9,7 +9,7 @@ public class IdentityMap {
 
     public Writer getWriterById(int id) {
         if (writerMap.containsKey(id)) {
-            System.out.println("...getting Writer from the map...");
+            System.out.println("...получение писателя из кэша...");
             return writerMap.get(id);
         };
         Writer writer = new WriterMapper().getById(id);
@@ -23,7 +23,7 @@ public class IdentityMap {
 
     public Book getBookById(int id) {
         if (bookMap.containsKey(id)) {
-            System.out.println("...getting Book from the map...");
+            System.out.println("...получение книги из кэша...");
             return bookMap.get(id);
         };
         Book book = new BookMapper().getById(id);

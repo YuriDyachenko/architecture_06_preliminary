@@ -25,6 +25,6 @@ public class Writer {
 
     @Override
     public String toString() {
-        return "Writer{" + id + ", '" + name + "', " + unread + "}";
+        return "Писатель{" + id + ", '" + name + "', " + unread + "}";
     }
 }

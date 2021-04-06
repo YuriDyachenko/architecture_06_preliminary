@@ -31,6 +31,6 @@ public class Book {
 
     @Override
     public String toString() {
-        return "Book{" + writer + ", " + id + ", '" + name + "', " + unread + "}";
+        return "Книга{" + writer + ", " + id + ", '" + name + "', " + unread + "}";
     }
 }

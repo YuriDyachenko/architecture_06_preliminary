@@ -15,7 +15,7 @@ public class WriterMapper {
             if (rs.next()) {
                 Writer writer = new Writer(rs.getInt("id"),
                         rs.getString("name"), rs.getInt("unread"));
-                System.out.println("...getting Writer from the base...");
+                System.out.println("...запрос писателя к базе данных...");
                 return writer;
             }
         } catch (SQLException throwables) {

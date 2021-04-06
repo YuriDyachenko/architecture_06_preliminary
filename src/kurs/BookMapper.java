@@ -17,7 +17,7 @@ public class BookMapper {
                         getWriterById(rs.getInt("writer_id"));
                 Book book = new Book(writer, rs.getInt("id"),
                         rs.getString("name"), rs.getInt("unread"));
-                System.out.println("...getting Book from the base...");
+                System.out.println("...запрос книги к базе данных...");
                 return book;
             }
         } catch (SQLException throwables) {
